@@ -30,11 +30,16 @@
         <br>
 
         <!--fill in restaurant name -->
-       <form action="menu.html" class="text-center ">
+       <form action="menu.html" class="text-center " >
         <label for="name">Enter the restaurant`s name</label>
         <br>
         <input type="text" name="restaurant" 
         placeholder="e.g. Kikao" autocomplete="off" st>
+        <br>
+        <label for="name">Enter Your Table number</label>
+        <br>
+         <input type="number" name="restaurant" maxlength="7" pattern="[0-9]{7}" required 
+        placeholder="e.g. 0-9" autocomplete="off" st>
         <br>
         <button  type="submit">view menu</button>
        </form>
