@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital-Menu</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body  class="bg-sky-950 text-blue-600 dark:text-sky-400  ">
+<!--My Top-nav-bar-->
+    <nav class="fixed top-0 w-full flex justify-between p-4 bg-sky-900 text-white" >
+<button>menu</button>
+<span>welome</span>
+<button>Notify</button>
+    </nav>
+
+    <br>
+
+    <main class="pt-16 pb-20">
+        <!--Hero section-->
+        <section class="card rounded-none bg-sky-500/50"  >
+            <div class="text-center ">
+                <img src="kitchen-menu.png" alt="foods-delicacies">
+                <h1>All in one menu</h1>
+                <p>Order for your table within the restaurant </p>
+            </div>
+            
+        </section>
+        <br>
+
+        <!--fill in restaurant name -->
+       <form action="menu.html" class="text-center ">
+        <label for="name">Enter the restaurant`s name</label>
+        <br>
+        <input type="text" name="restaurant" 
+        placeholder="e.g. Kikao" autocomplete="off" st>
+        <br>
+        <button  type="submit">view menu</button>
+       </form>
+
+       <br>
+
+       <!-- How this all works-->
+        <div class="mx-auto max-w-md bg-sky-900 rounded-xl shadow-lg p-6 text-sky-100">
+        <h3 class="text-xl font-bold text-center mb-4">How it all works</h3>
+        <ol class="list-decimal list-inside space-y-2">
+            <li class="no-underline hover:underline">Choose the preferred dish and enter table number</li>
+            <li class="no-underline hover:underline">Click order a code will be displayed on your side</li>
+            <li class="no-underline hover:underline">You will see the waiter on duty to serve</li>
+            <li class="no-underline hover:underline">The waiter will give an approximate wait time</li>
+            <li class="no-underline hover:underline">you will see the wait time</li>
+            <li class="no-underline hover:underline">The waiter will arrive with your food </li>
+            <li class="no-underline hover:underline">after the timer is over it just displays the receipt with pay button</li>
+            <li class="no-underline hover:underline"> when you pay you can add a feedback(optional)</li>
+            <li class="no-underline hover:underline">The waiter sees and comes collect dishes or any free waiter</li>
+        </ol>
+        </div>
+        
+    </main>
+
+    <!--My bottom navbar-->
+    <nav class="fixed bottom-0 w-full flex justify-around p-4 bg-sky-900 text-white">
+    <a href="menu.html">Menu</a>
+    <a href="order.html">Order</a>
+    <a href="waiter.html">waiter</a>
+    <a href="receipt.html">receipt</a>
+    </nav>
+    
+</body>
+</html>
