@@ -70,5 +70,6 @@ menu/                   (meal photos used by menu.html)
 - M-Pesa payment
 - Backend so waiter and customer can use different devices
 
+
  
 
