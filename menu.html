@@ -200,24 +200,24 @@
 
         const orderButtons = document.querySelectorAll("section button");
 
-        orderButtons.forEach(function(button){
-            button.addEventListener("click",function (){
-                const card = button.parentElement;
+        orderButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        const card = button.parentElement;
 
-                const order ={
-                    name: card.querySelector("h3").textContent,
-                    price:card.querySelector("p").textContent,
-                    image:card.querySelector("img").getAttribute("src"),
-                    category:button.closest("section").id,
-                    restaurant:localstorage.getItem("restaurant") || "Restaurant name",
-                    table: localStorage.getItem("table") || "Table number",
-                    time: new Date().tolocaleTimeString(),
-                    endTime: null
-                };
-                localStorage.setItem("order",JSON.stringify(ORDER));
-                window.location.href="waiter.html";
-            });
-        });
+        const order = {
+            name: card.querySelector("h3").textContent,
+            price: card.querySelector("p").textContent,
+            image: card.querySelector("img").getAttribute("src"),
+            category: button.closest("section").id,
+            restaurant: localStorage.getItem("restaurant") || "Restaurant name",
+            table: localStorage.getItem("table") || "Table number",
+            time: new Date().toLocaleTimeString(),
+            endTime: null
+        };
+        localStorage.setItem("order", JSON.stringify(order));
+        window.location.href = "waiter.html";
+    });
+});
 
 
     </script>
