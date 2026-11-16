@@ -62,7 +62,6 @@ menu/                   (meal photos used by menu.html)
 - Pay is a confirmation only. There is no real payment such as M-Pesa yet.
 - The **Notify** button is not connected to anything yet.
 
-
 ## Ideas for later
  
 - Optional feedback after payment
