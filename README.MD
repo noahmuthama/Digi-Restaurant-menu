@@ -17,5 +17,18 @@ A simple table-ordering web platform , the customer types the name and table num
 | `waiter.html` | Shows the current order, waiter sets the wait time |
 | `order.html` | Customer view: live countdown, then receipt and Pay |
 | `receipt.html` | customer Pays the bill and view the payment history |
+
+## Data (localStorage)
+ 
+All data lives in the browser's localStorage.
+ 
+| Key | What it holds |
+| --- | --- |
+| `restaurant` | Restaurant name typed on the home page index.html |
+| `table` | Table number typed on the home page |
+| `order` | The current order: `name`, `price`, `image`, `category`, `restaurant`, `table`, `time`, `endTime` |
+| `receipts` | List of all paid orders, each with a `paidAt` time |
+ 
+
  
 
