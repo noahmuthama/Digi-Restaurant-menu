@@ -30,16 +30,16 @@
         <br>
 
         <!--fill in restaurant name -->
-       <form action="menu.html" class="text-center " >
+       <form id="info-form" action="menu.html" class="text-center " >
         <label for="name">Enter the restaurant`s name</label>
         <br>
-        <input type="text" name="restaurant" 
+        <input type="text"  id="restaurant" name="restaurant" 
         placeholder="e.g. Kikao" autocomplete="off" st>
         <br>
         <label for="name">Enter Your Table number</label>
         <br>
-         <input type="number" name="restaurant" maxlength="7" pattern="[0-9]{7}" required 
-        placeholder="e.g. 0-9" autocomplete="off" st>
+         <input type="number" id="table" name="table" required 
+        placeholder="e.g. 12" autocomplete="off" st>
         <br>
         <button  type="submit">view menu</button>
        </form>
@@ -66,11 +66,23 @@
 
     <!--My bottom navbar-->
     <nav class="fixed bottom-0 w-full flex justify-around p-4 bg-sky-900 text-white">
+    <a href="index.html">Home</a>
     <a href="menu.html">Menu</a>
     <a href="order.html">Order</a>
     <a href="waiter.html">waiter</a>
     <a href="receipt.html">receipt</a>
     </nav>
+
+
+    <script>
+        const form = document.getElementById("info-form");
+
+        form.addEventListener("submit", function () {
+            localStorage.setItem("restaurant",document.getElementById("restaurant").value);
+            localStorage.setItem("table", document.getElementById("table").value);
+
+        });
+    </script>
     
 </body>
 </html>

@@ -15,8 +15,8 @@
     </nav>
     <main>
     <!--Restaurant name chosen --> 
-    <h1>Restaurant name</h1>
-    <h1>Table number</h1>
+    <h1 id="restaurant-name">Restaurant name</h1>
+    <h1 id="table-number"></h1>>Table number</h1>
 
     <br>
 
@@ -166,6 +166,7 @@
 
       <!-- My bottom nav bar -->
     <nav class="fixed bottom-0 w-full flex justify-around p-4 bg-sky-900 text-white">
+        <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="order.html">Order</a>
         <a href="waiter.html">Waiter</a>
@@ -176,6 +177,14 @@
     </main>
 
     <script>
+
+        // show the saved restaurant name and table number
+        document.getElementById("restaurant-name").textContent = 
+        localStorage.getItem("restaurant") || "Restaurant name";
+
+                document.getElementById("table-number").textContent = 
+        localStorage.getItem("table") || "Table number";
+
         // 1.Find the dropdown on the page and call it menu
         const menu = document.getElementById("category")
 
@@ -187,6 +196,8 @@
         section.scrollIntoView({behavior:"smooth"});
 
         });
+
+
     </script>
 </body>
 </html>
