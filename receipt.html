@@ -30,6 +30,8 @@
         </div>
 
         <p id="done" class="hidden text-green-400 font-semibold">Payment received Thank you!</p>
+        <h2 class="text-xl font-bold mt-6 mb-2">Payment history</h2>
+       <div id="history" class="space-y-2"></div>
     </main>
 
        <!-- Bottom nav bar -->
@@ -52,6 +54,19 @@
             document.getElementById("r-table").textContent = order.restaurant + ", Table " + order.table;
         }
 
+        function showHistory() {
+    const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+    let html = "";
+    receipts.reverse().forEach(function (r) {
+        html += '<div class="bg-sky-900 p-3 rounded-lg">' +
+            '<p class="font-semibold">' + r.name + '</p>' +
+            '<p class="text-amber-400">' + r.price + '</p>' +
+            '<p class="text-sm text-sky-300">' + r.restaurant + ', Table ' + r.table + ', paid at ' + r.paidAt + '</p>' +
+            '</div>';
+    });
+    document.getElementById("history").innerHTML = html || "No payments yet.";
+}
+
                 document.getElementById("pay").addEventListener("click", function () {
             // add this payment to the list of all payments
             const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
@@ -62,7 +77,9 @@
 
             document.getElementById("bill").style.display = "none";
             document.getElementById("done").style.display = "block";
+            showHistory();
         });
+        showHistory();
     </script>
 
 
