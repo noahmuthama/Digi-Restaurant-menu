@@ -3,9 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>order page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-sky-950 text-sky-100 pt-16 pb-20">
+
+    <!-- Top nav -->
+    <nav class="fixed top-0 w-full flex justify-between p-4 bg-sky-900 text-white">
+        <a href="menu.html">menu</a>
+        <span>order</span>
+        <button>Notify</button>
+    </nav>
+
+    <main class="px-4 max-w-md mx-auto">
+        <h1 class="text-2xl font-bold my-4">Your order</h1>
+
+        <!-- No order -->
+        <p id="empty">Hey, no order yet , visit menu and select a meal then order </p>
+
+        <!--Meal ordered with the timer , timmer hidden after tieout-->
+<div id="meal" class="hidden bg-sky-900 p-4 rounded-xl shadow-lg space-y-2">
+            <img id="image" class="w-full h-48 object-cover rounded-lg" alt="">
+            <h2 id="name" class="text-xl font-semibold"></h2>
+            <p id="price" class="text-amber-400 font-medium"></p>
+            <p id="category" class="text-sm text-sky-300"></p>
+            <p id="table" class="text-sm text-sky-300"></p>
+            <p id="time" class="text-sm text-sky-300"></p>
+
+            <div class="pt-3 text-center">
+                <p id="status" class="text-sm text-sky-300"></p>
+                <h2 id="timer" class="text-4xl font-bold"></h2>
+            </div>
+        </div>
+
+        <!--Receipt shown after time out-->
+
+        <div id="receipt">
+            <p id="r-name"></p>
+            <p id="r-price"></p>
+            <p id="r-table"></p>
+            <button id="pay">pay</button>
+
+        </div>
+        </main>
+
+ <!-- Bottom nav -->
+    <nav class="fixed bottom-0 w-full flex justify-around p-4 bg-sky-900 text-white">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order</a>
+        <a href="waiter.html">Waiter</a>
+        <a href="receipt.html">Receipt</a>
+    </nav>
+
+    <script>
+        // read the order saved by menu.html
+
+        const order = JSON.PARSE(localStorage.getItem("order"));
+
+        if (order){
+         document.getElementById("empty").style.display = "none";
+         document.getElementById("meal").style.display = "block";
+
+          document.getElementById("image").src = order.image;
+        document.getElementById("name").textContent = order.name;
+        document.getElementById("price").textContent = order.price;
+        document.getElementById("category").textContent = "Category: " + order.category;
+        document.getElementById("table").textContent = order.restaurant + ", Table " + order.table;
+        document.getElementById("time").textContent = "Ordered at: " + order.time;
+        document.getElementById("status").textContent = "Waiting for waiter...";
+        }
+
+//here is the countdown again
+        setInterval(function () {
+        // read again, so we see the time the waiter posted
+        const latest = JSON.parse(localStorage.getItem("order"));
+        if (!latest || !latest.endTime) return;
+
+        const left = latest.endTime - Date.now();
+
+        if (left <= 0) {
+            // time over: hide meal, show receipt
+            document.getElementById("meal").style.display = "none";
+            document.getElementById("receipt").style.display = "block";
+
+            document.getElementById("r-name").textContent = latest.name;
+            document.getElementById("r-price").textContent = latest.price;
+            document.getElementById("r-table").textContent = latest.restaurant + ", Table " + latest.table;
+        } else {
+            const m = Math.floor(left / 60000);
+            const s = Math.floor((left % 60000) / 1000);
+            document.getElementById("status").textContent = "Ready in";
+            document.getElementById("timer").textContent = m + ":" + String(s).padStart(2, "0");
+        }
+    }, 1000);
+
+    // pay button
+    document.getElementById("pay").addEventListener("click", function () {
+        alert("Paid. Thank you!");
+        localStorage.removeItem("order");
+        location.reload();
+    });
+    </script>
     
 </body>
 </html>
