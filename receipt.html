@@ -52,6 +52,21 @@
             document.getElementById("r-table").textContent = order.restaurant + ", Table " + order.table;
         }
 
+                document.getElementById("pay").addEventListener("click", function () {
+            // add this payment to the list of all payments
+            const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+            order.paidAt = new Date().toLocaleTimeString();
+            receipts.push(order);
+            localStorage.setItem("receipts", JSON.stringify(receipts));
+            localStorage.removeItem("order");
+
+            document.getElementById("bill").style.display = "none";
+            document.getElementById("done").style.display = "block";
+        });
+    </script>
+
+
+
     
 </body>
 </html>
