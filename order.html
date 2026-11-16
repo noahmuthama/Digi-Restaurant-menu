@@ -99,11 +99,10 @@
     }, 1000);
 
     // pay button
-    document.getElementById("pay").addEventListener("click", function () {
-        alert("Paid. Thank you!");
-        localStorage.removeItem("order");
-        location.reload();
-    });
+   // pay button
+document.getElementById("pay").addEventListener("click", function () {
+    location.href = "receipt.html";
+});
     </script>
     
 </body>
