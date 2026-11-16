@@ -16,6 +16,26 @@
     </nav>
     <main>
 
+        <h1>Order</h1>
+        <p id="empty">No order yet</p>
+
+        <div id="order">
+            <img id="image">
+            <h2 id="name"></h2>
+            <p id="price"></p>
+            <p id="category"></p>
+            <p id="table"></p>
+            <p id="time"></p>
+
+            <br>
+            <input type="number" id="minutes" placeholder="Minutes" >
+            <button id="start"> Start timer</button>
+
+            <h2 id="timer"></h2>
+
+
+        </div>
+
     </main>
 
      <!-- Bottom nav -->
@@ -26,6 +46,49 @@
         <a href="waiter.html">Waiter</a>
         <a href="receipt.html">Receipt</a>
     </nav>
+
+    <script>
+        // read the one order saved by menu.html
+
+        const order = JSON.parse(localStorage.getItem("order"));
+
+        if (order){
+            document.getElementById("empty").style.display = "none";
+            document.getElementById("order").style.display = "block";
+
+            document.getElementById("image").src = order.image;
+            document.getElementById("name").textContent = order.name;
+            document.getElementById("price").textContent = order.price;
+            document.getElementById("category").textcontent = "category:" + order.category;
+            document.getElementById("table").textContent = order.restaurant + "for"+
+            order.table;
+            document.getElementById("time").textContent = "Ordered at:" + order.time;
+        }
+
+        // waiter sets the minutes
+
+        document.getElementById("start").addEventListener("click", function (){
+            const minutes = Number(document.getElementById("minutes").value);
+            if(minutes > 0) {
+                order.endTime = Date.now() + minutes * 60000;
+                localStorage.setItem("order",JSON.stringify(order));
+            }
+        });
+
+        // countdown,runs every second
+        setInterval(function () {
+            if (!order || !order.endTime) return;
+            const left = order.endTime - Date.now();
+            const timer = document.getElementById("timer");
+            if(left <= 0) {
+                timer.textContent = "Meal is Ready!";
+            } else {
+                const m = Math.floor(left/60000);
+                const s = Math.floor(left % 60000) / 1000);
+                timer.textContent = m +":" + String(s).padStart(2,"0");
+            }
+        }, 1000);
+    </script>
     
 </body>
 </html>
