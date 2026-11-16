@@ -174,5 +174,19 @@
 
 
     </main>
+
+    <script>
+        // 1.Find the dropdown on the page and call it menu
+        const menu = document.getElementById("cayegory")
+
+        //2.Whenever the dropdown changes, run the code in the {} below
+        menu.addEventListener("change",function(){
+            // 3.Read what was picked,find the section with that id,call it,call it "section"
+            const section = document.getElementById(menu.value);
+        //4.scroll the page to that section,smoothly
+        section.scrollIntoView({behavior:"smooth"});
+
+        });
+    </script>
 </body>
 </html>
