@@ -14,29 +14,32 @@
         <span>waiter</span>
         <button>Notify</button>
     </nav>
-    <main>
+    <main class="px-4 max-w-md mx-auto">
 
-        <h1>Order</h1>
+        <h1 class="text-2xl font-bold my-4">Order</h1>
         <p id="empty">No order yet</p>
 
-        <div id="order">
-            <img id="image">
-            <h2 id="name"></h2>
-            <p id="price"></p>
-            <p id="category"></p>
-            <p id="table"></p>
-            <p id="time"></p>
+        <div id="order"  class="hidden bg-sky-900 p-4 rounded-xl shadow-lg space-y-2">
+            <img id="image" class="w-full h-48 object-cover rounded-lg">
+            <h2 id="name"  class="text-xl font-semibold"></h2>
+            <p id="price"  class="text-amber-400 font-medium"></p>
+            <p id="category" class="text-sm text-sky-300"></p>
+            <p id="table" class="text-sm text-sky-300"></p>
+            <p id="time" class="text-sm text-sky-300"></p>
 
             <br>
-            <input type="number" id="minutes" placeholder="Minutes" >
-            <button id="start"> Start timer</button>
+        </div>
+        <div class="flex gap-2 pt-2">
+            <input type="number" id="minutes" placeholder="Minutes"
+            class="flex-1 p-2 rounded-lg bg-sky-950 border border-sky-700 text-sky-100" >
+            <button id="start" class="text-3xl font-bold text-center pt-2"> Start timer</button>
 
             <h2 id="timer"></h2>
 
 
         </div>
 
-    </main>
+    </main >
 
      <!-- Bottom nav -->
     <nav class="fixed bottom-0 w-full flex justify-around p-4 bg-sky-900 text-white">
@@ -83,8 +86,8 @@
             if(left <= 0) {
                 timer.textContent = "Meal is Ready!";
             } else {
-                const m = Math.floor((left/60000);
-                const s = Math.floor(left % 60000) / 1000);
+                const m = Math.floor(left/60000);
+                const s = Math.floor((left % 60000) / 1000);
                 timer.textContent = m +":" + String(s).padStart(2,"0");
             }
         }, 1000);
