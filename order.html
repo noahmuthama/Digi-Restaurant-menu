@@ -38,7 +38,7 @@
 
         <!--Receipt shown after time out-->
 
-        <div id="receipt">
+        <div id="receipt" class="hidden">
             <p id="r-name"></p>
             <p id="r-price"></p>
             <p id="r-table"></p>
@@ -59,7 +59,7 @@
     <script>
         // read the order saved by menu.html
 
-        const order = JSON.PARSE(localStorage.getItem("order"));
+        const order = JSON.parse(localStorage.getItem("order"));
 
         if (order){
          document.getElementById("empty").style.display = "none";
