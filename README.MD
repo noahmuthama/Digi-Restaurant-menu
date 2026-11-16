@@ -7,3 +7,15 @@ A simple table-ordering web platform , the customer types the name and table num
 3. **Waiter (`waiter.html`):** the order appears here. The waiter types the minutes by  which the meal should be ready and taps **Start timer**.
 4. **Order (`order.html`):** the customer sees their meal and the countdown. When it reaches zero, the meal disappears and the receipt shows with a **Pay** button.
 5. **Receipt (`receipt.html`):** the customer taps **Pay**. The payment is saved and appears in the payment history.
+
+## Pages
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | Landing page, collects restaurant name and Sitting table number |
+| `menu.html` | Meal list with a category dropdown and Order buttons |
+| `waiter.html` | Shows the current order, waiter sets the wait time |
+| `order.html` | Customer view: live countdown, then receipt and Pay |
+| `receipt.html` | customer Pays the bill and view the payment history |
+ 
+
