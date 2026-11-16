@@ -1,1 +1,2 @@
 # Digital Restaurant Menu
+A simple table-ordering web platform , the customer types the name and table number, opens that restaurants menu , orders preferred meal , they see waiting waiter then a countdown then a receipt appears , click pay and customer is directed to pay , customer pays and receipt stored.
